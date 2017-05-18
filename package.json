@@ -10,7 +10,9 @@
   "author": "Steve Henke",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^0.28.1",
     "html-webpack-plugin": "^2.28.0",
     "webpack": "^2.5.1"
-  }
+  },
+  "dependencies": {}
 }
