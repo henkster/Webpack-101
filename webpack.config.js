@@ -1,6 +1,7 @@
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var webpack = require('webpack'); // add for HMR, but has other plugins
 
 module.exports = {
   entry: {
@@ -15,11 +16,12 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader']
-          //publicPath: '/dist'
-        })
+        use: ['style-loader', 'css-loader'] // can't extract CSS files with HMR
+        // use: ExtractTextPlugin.extract({
+        //   fallback: 'style-loader',
+        //   use: ['css-loader']
+        //   //publicPath: '/dist'
+        // })
       },
       {
         test: /\.js$/,
@@ -52,16 +54,20 @@ module.exports = {
   }),
   new ExtractTextPlugin(
     {
-      filename: 'app.css' // string is the name of the resultant file.
+      filename: 'app.css', // string is the name of the resultant file.
       //disabled: false, // wasn't required
       //allChunks: true // wasn't required
-    })
+      disable: true
+    }),
+  new webpack.HotModuleReplacementPlugin(), // enable HMR globally
+  new webpack.NamedModulesPlugin // prints more readable module names in the browser on HMR updates
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'), // will behave like our webpack config
     compress: true, // gzip
     //port: 9000, // instead of default 8080
-    stats: 'errors-only'//, // not as much output when running, changing
+    stats: 'errors-only', // not as much output when running, changing
     //open: true // will open browser tab when running
+    hot: true // for HMR
   }
 }
