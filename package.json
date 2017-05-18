@@ -6,7 +6,7 @@
   "scripts": {
     "dev-original": "webpack -d --watch",
     "dev": "webpack-dev-server",
-    "prod": "npm run clean && webpack -p",
+    "prod": "npm run clean && set NODE_ENV=production&& webpack -p",
     "clean": "rimraf ./dist/*"
   },
   "author": "Steve Henke",
