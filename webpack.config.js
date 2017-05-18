@@ -19,7 +19,7 @@ module.exports = {
         })
       },
       {
-        test: /\.js/,
+        test: /\.js$/,
         use: {
           loader: 'babel-loader',
           options: {
