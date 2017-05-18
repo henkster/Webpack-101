@@ -31,13 +31,19 @@ module.exports = {
     ]
   },
   plugins: [new HtmlWebpackPlugin({
-    title: 'Project',
+    title: 'Project Demo',
     template: './src/index-template.html',
     minify: {
       //collapseWhitespace: true
     },
+    hash: true
+    //filename: './../index.html' // to specify the location.
+  }),
+  new HtmlWebpackPlugin({
+    title: 'Contact Page',
+    template: './src/contact-template.html',
     hash: true,
-    filename: './../index.html'
+    filename: 'contact.html'
   }),
   new ExtractTextPlugin(
     {
