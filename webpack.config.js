@@ -1,4 +1,5 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: './src/app.js',
@@ -10,9 +11,11 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        //use: 'style-loader!css-loader' // this did not work for me.
-        //use: [{loader: 'style-loader'}, {loader: 'css-loader' }]
-        use: ['style-loader', 'css-loader']
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader']
+          //publicPath: '/dist' // wasn't required
+        })
       }
     ]
   },
@@ -23,5 +26,11 @@ module.exports = {
       //collapseWhitespace: true
     },
     hash: true
-  })]
+  }),
+  new ExtractTextPlugin(
+    {
+      filename: 'app.css' // string is the name of the resultant file.
+      //disabled: false, // wasn't required
+      //allChunks: true // wasn't required
+    })]
 }
