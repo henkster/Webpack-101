@@ -11,7 +11,8 @@ module.exports = {
       {
         test: /\.css$/,
         //use: 'style-loader!css-loader' // this did not work for me.
-        use: [{loader: 'style-loader'}, {loader: 'css-loader' }]
+        //use: [{loader: 'style-loader'}, {loader: 'css-loader' }]
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
