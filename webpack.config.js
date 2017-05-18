@@ -23,7 +23,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['babel-preset-es2015'] // This is needed for the proper transpiling. Note that a debugger break, in this overall config, will show original ES6.
+            presets: ['es2015'] // This is needed for the proper transpiling. Note that a debugger break, in this overall config, will show original ES6.
           }
         },
         exclude: /node_modules/
