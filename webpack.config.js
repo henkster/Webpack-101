@@ -7,6 +7,6 @@ module.exports = {
     filename: 'app.bundle.js'
   },
   plugins: [new HtmlWebpackPlugin({
-    template: 'src/index-template.html'
+    template: './src/index-template.html'
   })]
 }
