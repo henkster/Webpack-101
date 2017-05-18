@@ -9,8 +9,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.css$/,
-        use: 'css-loader'
+        test: /\.css$/,
+        //use: 'style-loader!css-loader' // this did not work for me.
+        use: [{loader: 'style-loader'}, {loader: 'css-loader' }]
       }
     ]
   },
