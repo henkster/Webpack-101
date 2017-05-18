@@ -39,14 +39,16 @@ module.exports = {
     minify: {
       //collapseWhitespace: true
     },
-    hash: true
+    hash: true,
     //filename: './../index.html' // to specify the location.
+    excludeChunks: ['contact'] // excluding the bundle that is specific to the other template.
   }),
   new HtmlWebpackPlugin({
     title: 'Contact Page',
     template: './src/contact-template.html',
     hash: true,
-    filename: 'contact.html'
+    filename: 'contact.html',
+    chunks: ['contact'] // specifying the only bundle we need.
   }),
   new ExtractTextPlugin(
     {
