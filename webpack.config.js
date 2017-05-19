@@ -39,7 +39,10 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         //use: 'file-loader?name=[path][name].[ext]' // In our example, this will also include src
-        use: 'file-loader?name=[name].[ext]&outputPath=images/' // This will not handle collisions
+        use: [
+          'file-loader?name=[name].[ext]&outputPath=images/', // This will not handle collisions
+          'image-webpack-loader' // optimizes sizes ... can specify how much to optimize with options
+        ]
       }
     ]
   },
