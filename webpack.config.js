@@ -3,18 +3,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var webpack = require('webpack'); // add for HMR, but has other plugins
 
-console.log('The Deal = ' + process.env.NODE_ENV);
-console.log('And = ' + typeof process.env.NODE_ENV);
-console.log('So = ' + (process.env.NODE_ENV === 'production'));
-console.log('But = ' + (process.env.NODE_ENV == 'production'));
-console.log('Plus = ' + (process.env.NODE_ENV == "production"));
-
-var p = process.env.NODE_ENV;
-console.log("p = " + p);
-console.log("len: " + p.length);
-console.log("Fin: " + (p.toString() == 'production'));
-console.log("Hmmm: " + ("a" == "a"));
-
 var isProd = process.env.NODE_ENV === 'production';
 var cssDev = ['style-loader', 'css-loader'];
 var cssProd = ExtractTextPlugin.extract({
@@ -47,6 +35,10 @@ module.exports = {
           }
         },
         exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: 'file-loader'
       }
     ]
   },
