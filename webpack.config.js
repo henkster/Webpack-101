@@ -39,6 +39,7 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
         use: [
+          // Can add publicPath, but this essentially prepends, eg <img src="images/src/images/subFolder/IndySoccerCrest.jpg">
           'file-loader?name=[path][name].[ext]&publicPath=images/', // In our example, this will also include src
           //'file-loader?name=[name].[ext]&outputPath=images/', // This will not handle collisions
           'image-webpack-loader' // optimizes sizes ... can specify how much to optimize with options
