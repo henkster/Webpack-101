@@ -38,7 +38,8 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/i,
-        use: 'file-loader'
+        //use: 'file-loader?name=[path][name].[ext]' // In our example, this will also include src
+        use: 'file-loader?name=[name].[ext]&outputPath=images/' // This will not handle collisions
       }
     ]
   },

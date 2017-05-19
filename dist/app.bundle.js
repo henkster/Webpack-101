@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "42ccb7ec8d928649420d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5e7403a0a36c0e2c6cca"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -1336,7 +1336,7 @@ module.exports = {
 /***/ "./src/images/logo.png":
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "f568e8ced80c82f8228d3f671cdbfd6b.png";
+module.exports = __webpack_require__.p + "images/logo.png";
 
 /***/ }),
 
